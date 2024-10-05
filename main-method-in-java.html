@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java User Group, Bhubaneswar</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .dark {
+            background-color: #1a1a1a;
+            color: #ecf0f1;
+        }
+        h1 {
+            text-align: center;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #1abc9c;
+            margin-top: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        pre {
+            background-color: #2c2c2c;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .output {
+            font-weight: bold;
+            color: #27ae60;
+            display: none; /* Hide output initially */
+        }
+        .reveal-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            pre {
+                font-size: 0.9em;
+            }
+        }
+        /* Button styles */
+        .toggle-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 20px 0;
+            color: white;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            float: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="light">
+
+<h1>Java User Group, Bhubaneswar</h1>
+
+<button class="toggle-button" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+
+<hr>
+
+<h2>Exploring Java Main Class Variations</h2>
+
+<h3>1. Normal Main Class</h3>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>2. Main Class with Default Access Modifier</h3>
+<pre><code>default class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: CE: modifier default not allowed here</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>3. Main Class with Protected Access Modifier</h3>
+<pre><code>protected class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: CE: modifier protected not allowed here</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>4. Main Class Without Access Modifier</h3>
+<pre><code>class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>5. Main Class with Final Keyword</h3>
+<pre><code>public final class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>6. Main Method Without Access Modifier</h3>
+<pre><code>public class Main {
+    static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: CE: Main method not found in class Main, please define the main method as:<br>
+   <code>public static void main(String[] args)</code></p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>7. Main Method with Final Keyword</h3>
+<pre><code>public class Main {
+    public final static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>8. Main Method with Strictfp Keyword</h3>
+<pre><code>public class Main {
+    public strictfp static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>9. Main Method with Different Order of Keywords</h3>
+<pre><code>public class Main {
+    strictfp final static public void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>10. Main Method with Different Return Type</h3>
+<pre><code>public class Main {
+    strictfp final static public int main(String[] args) {
+        System.out.println("Hello World");
+        return 0;
+    }
+}</code></pre>
+<p class="output">Output: RE: Main method must return a value of type void in class Main, please define the main method as:<br>
+   <code>public static void main(String[] args)</code></p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>11. Main Method with Varargs</h3>
+<pre><code>public class Main {
+    strictfp static public void main(String... args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>12. Main Method Overloaded by Varargs</h3>
+<pre><code>public final class Main {
+    public static void main(String args) {
+        System.out.println("Hello World");
+    }
+    strictfp static public void main(String... args) {
+        System.out.println("Hello Varargs");
+    }
+}</code></pre>
+<p class="output">Output: Hello Varargs</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>13. Main Method Overloaded with Conflict</h3>
+<pre><code>public final class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+    strictfp static public void main(String... args) {
+        System.out.println("Hello Varargs");
+    }
+}</code></pre>
+<p class="output">Output: CE: cannot declare both main(String...) and main(String[]) in Main</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>14. Inheritance with Main Class</h3>
+<pre><code>class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+public class Test extends Main {
+}</code></pre>
+<p class="output">Output: Hello World</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h3>15. Inheritance with Method Hiding</h3>
+<pre><code>class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World-Main");
+    }
+}
+public class Test extends Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World-Test");
+    }
+}</code></pre>
+<p class="output">Output: Hello World-Test</p>
+<button class="reveal-button" onclick="revealOutput(this)">Show Output</button>
+
+<hr>
+
+<h2>Conclusion</h2>
+<p>This document provides an overview of various Java main class structures and the corresponding outputs, showcasing the nuances of Java's main method declaration and its behavior under different scenarios. For more discussions and examples, feel free to join us at the <a href="https://www.linkedin.com/groups/14528454/" target="_blank" style="color: #2980b9;">Java User Group, Bhubaneswar!</a></p>
+
+<footer>
+    <p>&copy; 2024 Java User Group, Bhubaneswar</p>
+</footer>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle('dark');
+        body.classList.toggle('light');
+    }
+
+    function revealOutput(button) {
+        const output = button.previousElementSibling; // Get the output paragraph
+        output.style.display = 'block'; // Show the output
+        button.style.display = 'none'; // Hide the button after showing output
+    }
+</script>
+
+</body>
+</html>
